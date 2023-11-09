@@ -7,8 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-실패<hr>
-<img src="resources/img/no.png" width="50px"><br>
-<a href = "bbs.jsp">게시판 페이지로</a>
+<form action="movie">
+영화 장르 : <input name = "movie"><br>
+<button>서버로 전송</button>
+</form>
+
 </body>
 </html>
