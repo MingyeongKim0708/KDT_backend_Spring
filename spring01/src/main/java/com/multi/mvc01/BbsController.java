@@ -1,6 +1,7 @@
 package com.multi.mvc01;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,7 +65,7 @@ public class BbsController {
 	public void list(Model model) throws Exception {
 		//dao를 이용해서 여러개를 받아서 가지고 오기
 		//BbsDAO dao = new BbsDAO();
-		ArrayList<BbsDTO2> list = dao.list();
+		List<BbsDTO2> list = dao.list();
 		System.out.println(list.size());
 		//views/list.jsp까지 넘겨야함 ==> Model
 		//model을 이용해서 검색결과인 list를 list.jsp까지 넘기기
