@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="book">
+	<!-- ORM, Mapper파일! -->
+	<insert id="create" parameterType="bookVO"> <!-- 입력값 DTO필요 parameterType에 mybatis-config의 alias="bookVO"로 지정해둔 것 작성 -->
+		insert into book
+		values (#{id},#{name},#{url},#{img});
+	</insert>
+	<update id="update" parameterType="bookVO">
+		update book
+		set name = #{name}
+		where id = #{id};
+	</update>
+	<delete id="delete" parameterType="String"> <!-- id 하나만 꺼내면 되니까 메모리 적으로 dto를 다 꺼내지말고 id 타입만 가져오는 것 추천 -->
+		delete from book
+		where id = #{id};
+	</delete>
+	
+	<!-- insert, update, delete 는 resultType="int" 고정이라서 생략함(작성시 오류발생) -->
+	<!-- select는 어떤 dto에 넣는지 모르기 때문에 resultType="bookVO"를 반드시 지정 -->
+	<select id="list" resultType="bookVO">
+		select * from book
+	</select>
+	<select id="one" parameterType="String" resultType="bookVO">
+		select * from book
+		where id = #{id}
+	</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
