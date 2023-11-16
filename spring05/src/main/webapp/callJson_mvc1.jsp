@@ -13,20 +13,41 @@
 	$(function () {
 		$('#b1').click(function() {
 			$.ajax({
-				url : "test",
-				//data : {},
-				success : function (response) { //브라우저가 http 통신 결과를 받아온다
-				
-				} //success
-			}) //ajax
+				url : "json.jsp",
+				dataType : "json",
+				success : function(json) {
+					$("#result").html(json.tel)
+				}//success
+			})//ajax
 		}) //b1
+		
+		$('#b2').click(function() {
+			$.ajax({
+				url : "json2.jsp",
+				dataType : "json",
+				success : function(array) {
+					$("#result").html(array[0].tel)
+				}//success
+			})//ajax
+		}) //b
+
+		$('#b3').click(function() {
+			$.ajax({
+				url : "json2.jsp",
+				success : function(array) {
+					$("#result").empty()
+				}//success
+			})//ajax
+		}) //b
 	}) //$
 	
 </script>
 
 </head>
 <body>
-	<button id="b1">컴퓨터 구매 항목 확인</button>
+	<button id="b1">json으로 받아오기</button>
+	<button id="b2">json array 받아오기</button>
+	<button id="b3">비우기</button>
 	<hr color="red">
 	<div id="result">ajax 통신 결과 들어가는 곳.</div>
 </body>

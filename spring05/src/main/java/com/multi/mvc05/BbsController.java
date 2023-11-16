@@ -1,12 +1,12 @@
 package com.multi.mvc05;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class BbsController {
@@ -77,5 +77,21 @@ public class BbsController {
 		//model을 이용해서 검색결과인 list를 list.jsp까지 넘기기
 		model.addAttribute("list", list);
 		
+	}
+	
+	@RequestMapping("jsonbbs")
+	@ResponseBody
+	public List<BbsDTO> jsonbbs() throws Exception {
+		List<BbsDTO> list = dao.list();
+		return list;
+	}
+	
+	@RequestMapping("map1")
+	@ResponseBody
+	public MapVO kakaoMap() {
+		MapVO map = new MapVO();
+		map.setLat(37.5116828);
+		map.setLon(127.059151);
+		return map;
 	}
 }
