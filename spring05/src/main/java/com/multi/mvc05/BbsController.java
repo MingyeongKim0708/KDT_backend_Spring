@@ -86,12 +86,5 @@ public class BbsController {
 		return list;
 	}
 	
-	@RequestMapping("map1")
-	@ResponseBody
-	public MapVO kakaoMap() {
-		MapVO map = new MapVO();
-		map.setLat(37.5116828);
-		map.setLon(127.059151);
-		return map;
-	}
+
 }
