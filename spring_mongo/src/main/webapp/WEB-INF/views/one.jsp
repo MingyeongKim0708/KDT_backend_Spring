@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-
+<form action = "update.memo">
     <table>
         <thead>
             <tr>
@@ -38,28 +38,29 @@
         <tbody>
             <tr>
                 <td>번호</td>
-                <td>${vo._id}</td>
+                <td><input name="_id" value ="${vo._id}" type="hidden"></td>
             </tr>
             <tr>
                 <td>이름</td>
-                <td>${vo.name }</td>
+                <td><input name="name" value = "${vo.name}" readonly="readonly" style="border: 0"></td>
             </tr>
             <tr>
                 <td>내용</td>
-                <td>${vo.content }</td>
+                <td><input name="content" value = "${vo.content}" style="background: pink;"></td>
             </tr>
             <tr>
                 <td>날씨</td>
-                <td>${vo.weather }</td>
+                <td><input name="weahter" value = "${vo.weather}" readonly="readonly" style="border: 0"></td>
             </tr>
             <tr>
                 <td>날짜</td>
-                <td>${vo.date }</td>
+                <td><input name="date" value="${vo.date}" readonly="readonly" style="border: 0"></td>
             </tr>
         </tbody>
     </table>
-<a href = "update.memo"><button style="background: lime;">메모 수정 요청</button></a>
-<a href = "delete.memo"><button style="background: lime;">메모 삭제 요청</button></a>
+<button style="background: lime;">메모 수정 요청</button>
+</form>
+<a href = "delete.memo?_id=${vo._id }"><button style="background: red;">메모 삭제 요청</button></a>
 <a href = "list.memo"><button style="background: lime;">전체 메모 목록</button></a>
 </body>
 </html>
