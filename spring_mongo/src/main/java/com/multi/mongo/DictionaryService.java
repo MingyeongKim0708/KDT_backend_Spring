@@ -15,17 +15,24 @@ public class DictionaryService {
 	@Autowired
 	DictionaryDAO dao;
 	
-	public void emotion(String sentence) {
+	public String emotion(String sentence) {
 		//코모란 이용해서 명사만 추출해서 프린트
 		Komoran komoran = new Komoran(DEFAULT_MODEL.FULL);
 		KomoranResult result = komoran.analyze(sentence);
 		List<String> list = result.getNouns();
 		System.out.println(list);
+		int sum = 0;
 		for (String s : list) {
 			DictionaryVO vo = dao.one(s);
 			if (vo != null) {
 				System.out.println(vo.getJumsu());
-			}
+				sum = sum + vo.getJumsu(); // sum += vo.getJumsu();
+			}//if
+		}//for
+		String result2 = "negative";
+		if(sum >= 0) {
+			result2 = "positive";
 		}
+		return result2;
 	}
 }
