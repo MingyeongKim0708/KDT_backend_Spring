@@ -13,7 +13,7 @@
 		from 
 			(select 
 				ROW_NUMBER() over(order by id desc) as bbs_no, 
-				id, title, content 
+				id, title, content, writer
 			from bbs b) b2
 		where b2.bbs_no BETWEEN ${start} and ${end}
 	</select>
