@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="library">
+	<!-- ORM, Mapper파일! -->
+	<insert id="insert" parameterType="libraryVO">
+		insert into library values (#{lib_code},#{lib_name},#{lib_region},#{lib_dtl_region},#{lib_address},
+		#{lib_tel},#{lib_fax},#{lib_latitude},#{lib_longitude},#{lib_homepage},
+		#{lib_closed},#{lib_operating_time},#{lib_bookcount});
+	</insert>
+	
+</mapper>
