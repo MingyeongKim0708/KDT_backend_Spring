@@ -3,9 +3,32 @@
 <mapper namespace="library">
 	<!-- ORM, Mapper파일! -->
 	<insert id="insert" parameterType="libraryVO">
-		insert into library values (#{lib_code},#{lib_name},#{lib_region},#{lib_dtl_region},#{lib_address},
+		insert into library values
+		(#{lib_code},#{lib_name},#{lib_region},#{lib_dtl_region},#{lib_address},
 		#{lib_tel},#{lib_fax},#{lib_latitude},#{lib_longitude},#{lib_homepage},
 		#{lib_closed},#{lib_operating_time},#{lib_bookcount});
 	</insert>
+
+	<update id="update" parameterType="libraryVO">
+		update library
+		set lib_name = #{lib_name}, 
+		lib_region = #{lib_region}, lib_dtl_region = #{lib_dtl_region}, lib_address = #{lib_address},
+		lib_tel = #{lib_tel}, lib_fax=#{lib_fax},
+		lib_latitude=#{lib_latitude},lib_longitude=#{lib_longitude},
+		lib_homepage=#{lib_homepage},
+		lib_closed=#{lib_closed},lib_operating_time=#{lib_operating_time},
+		lib_bookcount=#{lib_bookcount}
+		where id = #{lib_code};
+	</update>
 	
+	<delete id="delete" parameterType="libraryVO">
+		delete from library where lib_code = #{lib_code}
+	</delete>
+	<select id="one" parameterType="libraryVO" resultType="libraryVO">
+		select * from library where lib_code = #{lib_code}
+	</select>
+	<select id="list" resultType="libraryVO">
+		select * from library order by lib_code desc
+	</select>
+
 </mapper>
