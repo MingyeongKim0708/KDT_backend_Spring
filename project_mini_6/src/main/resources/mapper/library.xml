@@ -18,7 +18,7 @@
 		lib_homepage=#{lib_homepage},
 		lib_closed=#{lib_closed},lib_operating_time=#{lib_operating_time},
 		lib_bookcount=#{lib_bookcount}
-		where id = #{lib_code};
+		where lib_code = #{lib_code};
 	</update>
 	
 	<delete id="delete" parameterType="libraryVO">

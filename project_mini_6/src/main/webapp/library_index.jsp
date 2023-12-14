@@ -8,7 +8,7 @@
 </head>
 <body>
 <h3>도서관 검색</h3>
-	<form action="one">
+	<form action="library_one">
 		아이디 : <input type="text" name="id"><br>
 		<button type="submit">서버로 전송</button>
 	</form>

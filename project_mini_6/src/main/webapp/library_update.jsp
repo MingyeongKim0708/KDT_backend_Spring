@@ -1,5 +1,14 @@
+<%@page import="com.multi.mini6.LibraryVO"%>
+<%@page import="com.multi.mini6.LibraryDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <jsp:useBean id="bag" class="com.multi.mini6.LibraryVO"></jsp:useBean>
+    <jsp:setProperty property="id" name="bag">
+    <%
+    LibraryDAO libraryDAO = new LibraryDAO();
+    LibraryVO libraryVO = libraryDAO.one(bag);
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +18,8 @@
 <body>
 	<h3>도서관 수정</h3>
 	<hr color="red">
-	<form action="library_insert">
-		도서관 코드 <input name="lib_code" value="127058"><br> 
+	<form action="library_update">
+		도서관 코드 <input name="lib_code" value=<%=bag.getLib_code() %>><br> 
 		도서관 이름 <input name="lib_name" value="2.28도서관"><br> 
 		시/도 법정동 코드(대구) <input name="lib_region" value="27000"><br>
 		시/군/구 법정동 코드(중구) <input name="lib_dtl_region" value="27110"><br>
@@ -24,7 +33,7 @@
 		도서관 운영시간 <input name="lib_operating_time" value="화~금 09:00~18:00 / 토일 09:00~17:00"><br>
 		도서관 소장권수 <input name="lib_bookcount" value="51941"><br>
 
-		<button>도서관 정보 insert</button>
+		<button>도서관 정보 update</button>
 	</form>
 </body>
 </html>
